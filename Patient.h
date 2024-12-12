@@ -12,7 +12,9 @@ class Patient {
         long int ID, doctor; //doctor ID number
  
         public:
+            //Constructors
             Patient();
+            Patient(string fname, string lname, long int id, long int doc, string dob, string bld, string diag, string adm, string dsch);
 
             //names
             string getFirstName(); 
