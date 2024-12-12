@@ -39,4 +39,9 @@ class Patient {
             void setID(long int num);
             long int getDoctor();
             void setDoctor(long int num);
+
+            //Functions
+            bool IsDischarged(); //Discharge date != -1 -> return true, else false
+            string Patient_Status(); //Return critical, moderate or stable
+            void Print_Patient_Info(); //Prints all info
 };
