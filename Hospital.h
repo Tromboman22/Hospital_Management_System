@@ -9,8 +9,8 @@ using namespace std;
 class Hospital
 {
     private:
-        vector <Patient*> patients;
-        vector <Doctor*> doctors;
+        vector <Patient>* patients;
+        vector <Doctor>* doctors;
 
     public:
         //Constructor
