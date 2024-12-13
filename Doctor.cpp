@@ -18,8 +18,6 @@ Doctor::Doctor(const string& fName, const string& lName, const string& inpSpecia
     firstName = fName;
     lastName = lName;
     specialty = inpSpeciality;
-    specialty.pop_back(); //remove the "quotations"
-    specialty.erase(1);
     id = inpId;
     yearsExp = years;
     salary = inpSalary;
