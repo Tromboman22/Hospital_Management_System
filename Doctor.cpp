@@ -14,7 +14,7 @@ Doctor::Doctor(){
     performanceBonus = 0;
 }
 
-Doctor::Doctor(const string& fName, const string& lName, const string& inpSpeciality, const int& inpId, const int& years, const double& inpSalary, const double& perfBonus){
+Doctor::Doctor(const string& fName, const string& lName, const int& inpId, const string& inpSpeciality, const int& years, const double& inpSalary, const double& perfBonus){
     firstName = fName;
     lastName = lName;
     specialty = inpSpeciality;
