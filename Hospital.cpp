@@ -58,7 +58,106 @@ Hospital::Hospital(){
     filePatient.close();
 
 }
-Hospital::~Hospital() {
+Hospital::~Hospital() { //delete pointers
     delete doctors;
     delete patients;
+}
+
+//Functions
+void Hospital::Find_Oldest_Patient() //Find and print details of oldest patient
+{
+    long int min = 2024; //youngest possible patient
+    Patient *p;
+    for(int i = 0; i < (*patients).size(); i++) //Find
+    {
+        long int tmp = stoi((*patients)[i].getDOB());
+        if(tmp < min)
+            min = tmp;
+            *p = (*patients)[i];
+    }
+    Show_Patient_By_ID((*p).getID()); //Print
+}
+
+void Hospital::Count_Critical_Patients() //Count and return num of critical patients
+{
+    int count = 0;
+    for(int i = 0; i < (*patients).size(); i++)
+    {
+        if((*patients)[i].getDiagnostic() == "Critical")
+            ++count;
+    }
+    cout << count << " critical patients." << endl;
+}
+
+void Hospital::Doctors_By_Specialty(string specialty)
+{
+    cout << "Doctors specializing in " << specialty << ":";
+    int check = 0;
+    for(int i = 0; i < (*doctors).size(); i++)
+    {
+        if((*doctors)[i].getSpecialty() == specialty)
+        {
+            if(check == 1)
+                cout << ",";
+            else
+                check = 1;
+
+            cout << endl << (*doctors)[i].getFirstName() <<
+            " " << (*doctors)[i].getLastName();
+        }
+    }
+    cout << endl;
+}
+
+void Hospital::Show_Patient_By_ID(long int id)
+{
+    int check = 0;
+    for(int i = 0; i < (*patients).size(); i++)
+    {
+        if((*patients)[i].getID() == id)
+        {
+            check++;
+            (*patients)[i].Print_Patient_Info();
+            break;
+        }
+    }
+    if(check == 0)
+        cout << "No patient has the provided ID" << endl;
+}
+
+void Hospital::Show_Doctor_By_ID(long int id)
+{
+    int check = 0;
+    for(int i = 0; i < (*doctors).size(); i++)
+    {
+        if((*doctors)[i].getId() == id)
+        {
+            check++;
+            (*doctors)[i].Print_Doctor_Info();
+            break;
+        }
+    }
+    if(check == 0)
+        cout << "No patient has the provided ID" << endl;
+}
+
+void Hospital::Show_Assigned_Doctor(long int id)
+{
+    for(int i = 0; i < (*patients).size(); i++)
+    {
+        if((*patients)[i].getID() == id)
+        {
+            long int tmp = (*patients)[i].getDoctor();
+            if(tmp != -1)
+            {
+                cout << "Assigned Doctor:" << endl;
+                Show_Doctor_By_ID(tmp);
+                break;
+            }else{
+                cout << "Assigned Doctor: No doctor assigned" << endl;
+                break;
+            }
+
+        }
+    }
 }
