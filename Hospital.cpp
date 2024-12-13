@@ -161,3 +161,11 @@ void Hospital::Show_Assigned_Doctor(long int id)
         }
     }
 }
+void Hospital::Show_Assigned_Patients(long int id){
+    for(int i = 0; i < patients->size(); i++){
+        if(patients->at(i).getDoctor() == id){
+            patients->at(i).Print_Patient_Info();
+
+        }
+    }
+}
