@@ -8,15 +8,15 @@ using namespace std;
 //Constructors
 Patient::Patient()
 {
-    firstName
-    lastName
-    diagnostic
-    blood
-    DOB
-    admission
-    discharge
-    ID
-    doctor
+    firstName = "";
+    lastName = "";
+    diagnostic = "";
+    blood = "";
+    DOB = "";
+    admission = "";
+    discharge = "";
+    ID = -2;
+    doctor = -2;
 }
 Patient::Patient(string fname, string lname, long int id, long int doc, string dob, string bld, string diag, string adm, string disch)
 {
