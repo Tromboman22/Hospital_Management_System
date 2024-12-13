@@ -23,8 +23,6 @@ Patient::Patient(string fname, string lname, long int id, long int doc, string d
     firstName = fname;
     lastName = lname;
     diagnostic = diag;
-    diagnostic.pop_back(); //Remove the "quotations" from the diagnostic
-    diagnostic.erase(1);
     blood = bld;
     DOB = dob;
     admission = adm;
