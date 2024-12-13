@@ -1,4 +1,4 @@
-#include "Patient.h"
+#include "patient.h"
 #include <string>
 #include <iostream>
 
@@ -23,6 +23,8 @@ Patient::Patient(string fname, string lname, long int id, long int doc, string d
     firstName = fname;
     lastName = lname;
     diagnostic = diag;
+    diagnostic.pop_back(); //Remove the "quotations" from the diagnostic
+    diagnostic.erase(1);
     blood = bld;
     DOB = dob;
     admission = adm;
@@ -141,6 +143,6 @@ void Patient::Print_Patient_Info() //Prints all info
     "Date of Birth: " << DOB << endl <<
     "Admission Date: " << admission << endl <<
     "Discharge date: " << discharge << endl;
-    //Use getDoctor() in Driver.cpp to find doctor info using doctor ID
+    //Use getDoctor() in Driver.cpp to find doctor info
 }
 
